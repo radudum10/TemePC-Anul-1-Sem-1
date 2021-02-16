@@ -1,0 +1,80 @@
+// TASK 1
+- generez direct output-ul fara a crea si matricea
+* am observat output-urile si doar le-am construit *
+101 = eroare alocare sir de output
+
+// TASK 2
+- fac cast pointerului de input dat
+- folosesc strtok cu delimitatorul "_" pentru a extrage fiecare termen
+- fac suma, folosind atoi pt. fiecare termen
+- cu sprintf pun intr-un sir de caractere suma
+201 = eroare alocare sir de caractere pt. output
+
+// TASK 3
+- fac cast pointerului
+- daca primul element al vectorului este par, creez un vector cu elementele
+vecine interschimbate
+- altfel trec intr-un sir de caracter in ordine inversa
+- trec noul vector intr-un sir de caractere
+301 = eroare alocare sir de caractere pt. output
+
+// TASK 4
+- aloc structura + fiecare camp
+- verific alocarile
+- de asemenea setez ca valoare initiala pt. alive 1
+- am obs. ca structura are un camp pt indicele locatiei
+- am considerat ca poate fi folosit pentru indicele locatiei curente
+- l-am initializat cu 0, indicand ca player-ul se afla la locations[0]
+(a fost f. folositor pt Task 8)
+401 = eroare alocare pointer la structura player
+402 = eroare alocare nume player
+403 = eroare alocare culoare
+404 = eroare alocare palarie
+405 = eroare alocare pointer la structura game
+406 = eroare alocare nume joc
+
+// TASK 5
+- citesc fiecare camp folosindu-ma de un pointer la structura cu fscanf
+- pt. locatii iau fiecare paranteza si cu sscanf citesc .x si .y folosindu-ma
+de formatul (x,y)
+- in functie de rolul dat, ii atribui abilitatea si valoarea coresp. din enum
+- s-a folosit if ptc. nu se poate face switch pe string
+501 = eroare alocare sir de caractere folosit pt locatii
+502 = eroare alocare sir de caractere folosit pt rol
+
+// TASK 6
+- folosindu-ma de functia data fromEnumtoString, memorez intr-un sir de
+caractere, rolul jucatorului
+- printez nume, culoare, palarie, rol.
+- printez fiecare locatie
+- printez datele jocului
+
+// TASK 7
+- retin coordonatele impostorului
+- s-a folosit aici indexOfLocation(initializata cu 0) pt. a putea folosi
+functia si la task 8 fara modificari
+- pt. fiecare jucator viu, calculez distanta Manhattan intre el si impostor
+dupa formula dist = |x1 - x2| - |y1 - y2|
+- folosesc un algoritm banal de minim, unde minimul este initializat cu
+killRange
+- astfel se retine daca impostorul poate ucide (ok devine 1) si in caz
+favorabil(nefavorabil daca esti victima), se retine indicele crewmate-ului
+- se face output-ul cu sprintf
+701 = eroare alocare sir de caractere pt output
+
+// TASK 8
+- se parcurge fiecare crewmate
+- daca acesta este viu i se calculeaza locatia
+- se foloseste indexoflocation din struct
+- acesta se mareste in fiecare ciclu, iar daca a ajuns la nr. de locatii
+reincepe de la 0
+- se printeaza locatia
+- se apeleaza prin referinta functia ce reprezinta abilitatea
+- se printeaza output-ul dat de functie
+- daca este mort, se printeaza doar crewmate <nume> is dead.
+- se procedeaza la fel si pentru impostor
+- apeland functiile acestea returneaza un pointer caruia ii este alocata
+memorie si se elibereaza acestia.
+
+// TASK 9
+- se elibereaza campurile si structurile
